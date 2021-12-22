@@ -41,12 +41,13 @@ function showCreateOrEdit(id) {
     } else {
         $.ajax({
             type: "GET",
-            url: `http://localhost:8080/products/${id}`,
+            url: `http://localhost:8080/products/getProduct/${id}`,
             success: function (data) {
                 let myModal = new bootstrap.Modal(document.getElementById('modalCreate'));
                 $('#id').val(data.id);
                 $('#name').val(data.name);
                 $('#price').val(data.price);
+                $('#code').val(data.code);
                 $('#description').val(data.description);
                 showCategories();
                 showBrands();
@@ -141,18 +142,49 @@ function createOrEditProduct(id) {
         });
 
     } else {
+        let name = $('#name').val();
+        let price = $('#price').val();
+        let description = $('#description').val();
+        let code = $('#code').val();
+        let category = $('#category').val()
+        let brand = $('#brand').val()
+        let product = {
+            id: id,
+            name: name,
+            price: price,
+            description: description,
+            code: code,
+            category: {
+                id: category
+            },
+            brand: {
+                id: brand
+            }
+        }
         $.ajax({
-            type: "PUT",
-            data: data,
-            enctype: 'multipart/form-data',
-            processData: false,
-            contentType: false,
-            cache: false,
-            timeout: 600000,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
             url: `http://localhost:8080/products/${id}`,
-            success: function () {
-                showList();
-                alert("Update Success")
+            type: "PUT",
+            data: JSON.stringify(product),
+            success: function (result) {
+                let data = new FormData(form);
+                data.set("id", data.id);
+                $.ajax({
+                    url: `http://localhost:8080/images/${data.id}`,
+                    type: "PUT",
+                    enctype: 'multipart/form-data',
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    timeout: 600000,
+                    success: function () {
+                        alert("update success!");
+                    }
+                });
             }
         });
     }

@@ -22,8 +22,8 @@
 
     <!--====== App ======-->
     <link rel="stylesheet" href="../css/app.css">
-    <script src="../ajax/jsProductDetail.js"></script>
     <script src="../ajax/jsCart.js"></script>
+    <script src="../ajax/jsProductDetail.js"></script>
 </head>
 <body class="config">
 <div class="preloader is-active">
@@ -52,8 +52,7 @@
                         <label for="main-search"></label>
                         <input class="input-text input-text--border-radius input-text--style-1" type="text"
                                id="main-search" placeholder="Search">
-                        <button class="btn btn--icon fas fa-search main-search-button" type="submit"
-                                onclick="searchProduct()"></button>
+                        <button class="btn btn--icon fas fa-search main-search-button" type="submit" onclick="searchProduct()"></button>
                     </form>
                     <!--====== End - Search Form ======-->
 
@@ -200,10 +199,10 @@
                             <ul class="ah-list ah-list--design2 ah-list--link-color-secondary">
                                 <li>
                                     <a href="shop-side-version-2.html">NEW ARRIVALS</a></li>
-                                <li class="has-dropdown">
+                                <li>
                                     <a>PAGES<i class="fas fa-angle-down u-s-m-l-6"></i></a>
                                 </li>
-                                <li class="has-dropdown">
+                                <li>
                                     <a>BLOG<i class="fas fa-angle-down u-s-m-l-6"></i></a>
                                     <span class="js-menu-toggle"></span>
                                 </li>
@@ -236,12 +235,12 @@
                             <ul class="ah-list ah-list--design1 ah-list--link-color-secondary">
                                 <li>
 
-                                    <a href="index.html"><i class="fas fa-home u-c-brand"></i></a></li>
+                                    <a href="product.html"><i class="fas fa-home u-c-brand"></i></a></li>
                                 <li>
 
-                                    <a href="wishlist.html"><i class="far fa-heart"></i></a></li>
+                                    <a href="#"><i class="far fa-heart"></i></a></li>
                                 <li class="has-dropdown">
-                                    <a class="mini-cart-shop-link"><i class="fas fa-shopping-bag"></i></a>
+                                    <a class="mini-cart-shop-link" href="cart.html"><i class="fas fa-shopping-bag"></i></a>
                                     <span class="js-menu-toggle"></span>
                                 </li>
                             </ul>
@@ -358,30 +357,10 @@
                                         <div class="f-cart__pad-box">
                                             <div class="u-s-m-b-30">
                                                 <table class="f-cart__table">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td>SHIPPING</td>
-                                                        <td>$4.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>TAX</td>
-                                                        <td>$0.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>SUBTOTAL</td>
-                                                        <td>$379.00</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>GRAND TOTAL</td>
-                                                        <td>$379.00</td>
-                                                    </tr>
+                                                    <tbody id="checkout">
+
                                                     </tbody>
                                                 </table>
-                                            </div>
-                                            <div>
-                                                <button class="btn btn--e-brand-b-2" type="submit"> PROCEED TO
-                                                    CHECKOUT
-                                                </button>
                                             </div>
                                         </div>
                                     </div>

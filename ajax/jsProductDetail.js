@@ -236,6 +236,7 @@ function productDetail(id) {
             });
         }
     });
+
 }
 
 function addToCart() {

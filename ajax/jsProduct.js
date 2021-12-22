@@ -54,7 +54,7 @@ function getProduct(product, arrImage) {
 
 function drawUser(currentUser) {
     return `<li>
-                <a href=""><i class="fas fa-user-circle u-s-m-r-6"></i>
+                <a href="../user/dash-my-profile.html"><i class="fas fa-user-circle u-s-m-r-6"></i>
                    <span>${currentUser.name}</span>
                 </a>
             </li>
@@ -113,6 +113,7 @@ function loadMore() {
         page++;
         url = `http://localhost:8080/products?page=${page}`
     } else {
+        pageTotal = 1;
         return alert("Het roi");
     }
     let search = $('#main-search').val();
